@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<perguntas>
+  <pergunta descricao="C# é mais facil?" nivel="facil" materia="LPII">
+    <resposta descricao="Facil 0" correta="sim" />
+    <resposta descricao="SIM!" correta="sim" />
+    <resposta descricao="Facil 2" correta="nao" />
+    <resposta descricao="Facil 3" correta="nao" />
+  </pergunta>
+  <pergunta descricao="C# é mais facil?" nivel="facil" materia="LPII">
+    <resposta descricao="Facil 0" correta="sim" />
+    <resposta descricao="Facil 1" correta="nao" />
+    <resposta descricao="SIM!" correta="sim" />
+    <resposta descricao="Facil 3" correta="nao" />
+  </pergunta>
+  <pergunta descricao="Quão dificil é progaramar JAVA?" nivel="facil" materia="LPII">
+    <resposta descricao="Facil 0" correta="sim" />
+    <resposta descricao="Facil 1" correta="nao" />
+    <resposta descricao="Facil 2" correta="nao" />
+    <resposta descricao="Facil 3" correta="nao" />
+  </pergunta>
+  <pergunta descricao="Quão dificil é progaramar JAVA?" nivel="dificil" materia="LPII">
+    <resposta descricao="Facil 0" correta="sim" />
+    <resposta descricao="Facil 1" correta="nao" />
+    <resposta descricao="Facil 2" correta="nao" />
+    <resposta descricao="Facil 3" correta="nao" />
+  </pergunta>
+</perguntas>
