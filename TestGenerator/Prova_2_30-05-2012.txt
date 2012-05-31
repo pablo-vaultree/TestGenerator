@@ -1,0 +1,25 @@
+Curso: Sistemas de Informação
+Disciplina: LPIIData: 30-05-2012
+Professor: Cuzao
+Aluno: 
+Nota: 
+ 
+ - Prova - 
+ 
+Assinale a alternativa correta:
+ 
+1. C# é mais facil? 
+() Facil 0 
+() SIM! 
+() Facil 2 
+() Facil 3 
+
+ 
+2. C# é mais facil? 
+() Facil 0 
+() SIM! 
+() Facil 2 
+() Facil 3 
+
+ 
+

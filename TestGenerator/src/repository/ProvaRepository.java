@@ -4,10 +4,11 @@ package repository;
 
 import contracts.IPergunta;
 import contracts.IProva;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import models.*;
@@ -238,12 +239,85 @@ public class ProvaRepository implements IProva {
     
     @Override
     public void GerarGabarito(Prova prova) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            Date dataAtual = new Date();            
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            String nomeArquivo = "Gabarito_Prova_" + prova.Id() + "_" + dateFormat.format(dataAtual) + ".txt";                        
+            File f = new File (nomeArquivo);
+            FileWriter fr = new FileWriter (f);
+            PrintWriter out = new PrintWriter (fr);            
+            
+            StringBuffer texto = new StringBuffer();  
+            texto.append("Curso: Sistemas de Informação\r\n");
+            texto.append(String.format("Disciplina: %s", prova.Materia().Descricao()));
+            texto.append(String.format("Data: %s\r\n", dateFormat.format(dataAtual)));
+            texto.append(String.format("Professor: %s\r\n", prova.NomeProfessor()));
+            texto.append("Aluno: \r\n");
+            texto.append("Nota: \r\n \r\n");
+            texto.append(" - Prova - \r\n \r\n");
+            texto.append("Assinale a alternativa correta:\r\n \r\n");
+                                                                      
+            int nro = 1;
+            for (Pergunta pergunta : prova.BuscarPerguntas()) {
+                texto.append(String.format("%s. %s \r\n", nro, pergunta.Descricao()));
+                             
+                for (Resposta resposta : pergunta.BuscarRespostas()) {                    
+                    if(resposta.Correta()) {
+                        texto.append(String.format("(X) %s \r\n", resposta.Descricao()));                    
+                    }else       
+                    {
+                        texto.append(String.format("( ) %s \r\n", resposta.Descricao()));                    
+                    }
+                }                
+                nro +=1;                
+                texto.append("\r\n \r\n");
+            }
+            
+            out.println (texto.toString());
+            out.close();
+            
+        } catch (IOException e) {
+            System.out.println ("Erro ao escrever arquivo.");
+        }      
     }
 
     @Override
     public void GerarProva(Prova prova) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            Date dataAtual = new Date();            
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            String nomeArquivo = "Prova_" + prova.Id() + "_" + dateFormat.format(dataAtual) + ".txt";                        
+            File f = new File (nomeArquivo);
+            FileWriter fr = new FileWriter (f);
+            PrintWriter out = new PrintWriter (fr);            
+            
+            StringBuffer texto = new StringBuffer();  
+            texto.append("Curso: Sistemas de Informação\r\n");
+            texto.append(String.format("Disciplina: %s", prova.Materia().Descricao()));
+            texto.append(String.format("Data: %s\r\n", dateFormat.format(dataAtual)));
+            texto.append(String.format("Professor: %s\r\n", prova.NomeProfessor()));
+            texto.append("Aluno: \r\n");
+            texto.append("Nota: \r\n \r\n");
+            texto.append(" - Prova - \r\n \r\n");
+            texto.append("Assinale a alternativa correta:\r\n \r\n");
+                                                                      
+            int nro = 1;
+            for (Pergunta pergunta : prova.BuscarPerguntas()) {
+                texto.append(String.format("%s. %s \r\n", nro, pergunta.Descricao()));
+                             
+                for (Resposta resposta : pergunta.BuscarRespostas()) {
+                    texto.append(String.format("( ) %s \r\n", resposta.Descricao()));                    
+                }                
+                nro +=1;                
+                texto.append("\r\n \r\n");
+            }
+            
+            out.println (texto.toString());
+            out.close();
+            
+        } catch (IOException e) {
+            System.out.println ("Erro ao escrever arquivo.");
+        }            
     }        
     
      @Override

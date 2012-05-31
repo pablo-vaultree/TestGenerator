@@ -3,7 +3,11 @@ package repository;
 import contracts.IMateria;
 import contracts.IPergunta;
 import contracts.IProva;
+import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import models.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -107,6 +111,8 @@ public class ProvaRepositoryTest {
         Materia materia = srvMateria.BuscarMateria("LPII");        
         Prova prova = srvProva.GerarProva("Cuzao", materia, Nivel.FACIL, quantidade);                
         assertNotNull(prova); 
+        
+        srvProva.SalvarProva(prova);
     }   
     
     @Test
@@ -117,24 +123,30 @@ public class ProvaRepositoryTest {
         Prova prova = srvProva.GerarProva("Cuazao", materia, Nivel.FACIL, quantidade);                
         assertEquals(quantidade, prova.BuscarPerguntas().size()); 
     }   
+        
+    @Test
+    public void testGerarProva_Arquivo() {
+        System.out.println("Gerar Arquivo Prova");                
+        
+        Prova prova = srvProva.BuscarProva(1);   
+        srvProva.GerarProva(prova);                
+        
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date dataAtual = new Date();                        
+        String nomeArquivo = "Prova_" + prova.Id() + "_" + dateFormat.format(dataAtual) + ".txt";         
+        File arquivo = new File (nomeArquivo);
+        assertNotNull(arquivo);
+    }    
     
     @Test
     public void testGerarGabarito() {
-        System.out.println("GerarGabarito");
-        Prova prova = null;
-        
-        srvProva.GerarGabarito(prova);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Gerar Gabarito Prova");        
+        Prova prova = srvProva.BuscarProva(1);   
+        srvProva.GerarGabarito(prova);                        
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date dataAtual = new Date();                        
+        String nomeArquivo = "Gabarito_Prova_" + prova.Id() + "_" + dateFormat.format(dataAtual) + ".txt";         
+        File arquivo = new File (nomeArquivo);
+        assertNotNull(arquivo);                
     }
-
-    @Test
-    public void testGerarProva_Arquivo() {
-        System.out.println("GerarProva");
-        Prova prova = null;
-        
-        srvProva.GerarProva(prova);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }    
 }

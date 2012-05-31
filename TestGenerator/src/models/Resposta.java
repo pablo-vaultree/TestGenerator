@@ -19,6 +19,10 @@ public class Resposta {
         return Correta ? "sim" : "nao";        
     }
 
+    public boolean Correta() {        
+        return Correta;        
+    }
+    
     public void RespostaCorreta(boolean Correta) {
         this.Correta = Correta;
     }
