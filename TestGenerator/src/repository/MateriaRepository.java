@@ -129,12 +129,14 @@ public class MateriaRepository implements IMateria {
                 Element node = (Element) list.get(i);
                 
                 int id = Integer.parseInt(node.getAttributeValue("codigo"));
-                if (id == id) {
-                    rootNode.removeContent(node);
-                    return true;                           
-                }
-                                
-            }
+                if (id == codigo) {
+                    rootNode.removeContent(node);                                              
+                    XMLOutputter xmlOutput = new XMLOutputter();
+                    xmlOutput.setFormat(Format.getPrettyFormat());
+                    xmlOutput.output(document, new FileWriter(filePath));
+                    return true; 
+                }                                
+            }                        
         } catch (IOException | JDOMException io) {
             System.out.println(io.getMessage());
         }
@@ -157,8 +159,7 @@ public class MateriaRepository implements IMateria {
             rootNode.addContent(_materia);
 
             XMLOutputter xmlOutput = new XMLOutputter();
-
-            // display nice nice
+            
             xmlOutput.setFormat(Format.getPrettyFormat());
             xmlOutput.output(doc, new FileWriter(filePath));
 
