@@ -29,7 +29,7 @@ public class ProvaRepository implements IProva {
         srvPergunta = _srvPergunta;
     }
     
-    private String filePath = "C:\\provas.xml";
+    private String filePath = "provas.xml";
     IPergunta srvPergunta;
     
     @Override

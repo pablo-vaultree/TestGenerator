@@ -18,6 +18,8 @@ public interface IMateria {
     
     public Materia BuscarMateria(String descricao);
     
+    public Materia BuscarMateria(int id);
+    
     public void SalvarMateria(Materia materia);
     
     public boolean AlterarMateria(Materia materia);

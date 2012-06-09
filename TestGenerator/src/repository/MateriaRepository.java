@@ -23,7 +23,7 @@ public class MateriaRepository implements IMateria {
     public MateriaRepository() {
     }
     
-    private String filePath = "C:\\materia.xml";
+    private String filePath = "materia.xml";
     
     @Override
     public boolean AlterarMateria(Materia materia) {
@@ -95,6 +95,17 @@ public class MateriaRepository implements IMateria {
         ArrayList<Materia> materias = this.BuscarMaterias();
         for (Materia materia : materias) {
             if (materia.Descricao().equals(descricao)) {
+                return materia;                       
+            }
+        }
+        return null;
+    }
+    
+    @Override
+    public Materia BuscarMateria(int id) {
+        ArrayList<Materia> materias = this.BuscarMaterias();
+        for (Materia materia : materias) {
+            if (materia.Id() == id) {
                 return materia;                       
             }
         }

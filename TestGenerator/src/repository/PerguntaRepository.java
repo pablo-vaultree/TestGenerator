@@ -29,7 +29,7 @@ public class PerguntaRepository implements IPergunta{
         srvMateria = _srvMateria;
     }
     
-    private String filePath = "C:\\perguntas.xml";
+    private String filePath = "perguntas.xml";
     private IMateria srvMateria;
     
     @Override

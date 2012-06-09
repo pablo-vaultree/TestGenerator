@@ -36,7 +36,7 @@ public class ProvaRepositoryTest {
         int id = srvProva.BuscarProvas().size() + 1;        
         MateriaRepository srvMat = new MateriaRepository();
         Materia materia = srvMat.BuscarMateria("LPIII");        
-        Prova prova = new Prova(materia, id, "Cuzao Master");
+        Prova prova = new Prova(materia, id, "Master");
         
         for (int i = 0; i < 5; i++) {
             Pergunta pergunta = new Pergunta(materia, "Facil " + i + "?", Nivel.FACIL);            
@@ -109,7 +109,7 @@ public class ProvaRepositoryTest {
         System.out.println("GerarProva");                
         int quantidade = 2;
         Materia materia = srvMateria.BuscarMateria("LPII");        
-        Prova prova = srvProva.GerarProva("Cuzao", materia, Nivel.FACIL, quantidade);                
+        Prova prova = srvProva.GerarProva("Teste", materia, Nivel.FACIL, quantidade);                
         assertNotNull(prova); 
         
         srvProva.SalvarProva(prova);
@@ -120,7 +120,7 @@ public class ProvaRepositoryTest {
         System.out.println("testGerarProvaDeveRetornarProvaComPerguntas");                
         int quantidade = 1;
         Materia materia = srvMateria.BuscarMateria("LPII");        
-        Prova prova = srvProva.GerarProva("Cuazao", materia, Nivel.FACIL, quantidade);                
+        Prova prova = srvProva.GerarProva("Teste", materia, Nivel.FACIL, quantidade);                
         assertEquals(quantidade, prova.BuscarPerguntas().size()); 
     }   
         
