@@ -35,6 +35,11 @@ public class jfrInicio extends javax.swing.JFrame {
         });
 
         btnPergunta.setText("Perguntas");
+        btnPergunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPerguntaActionPerformed(evt);
+            }
+        });
 
         btnProva.setText("Provas");
 
@@ -76,6 +81,10 @@ public class jfrInicio extends javax.swing.JFrame {
     private void btnMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMateriaActionPerformed
         new jfrListarMaterias().setVisible(true);
     }//GEN-LAST:event_btnMateriaActionPerformed
+
+    private void btnPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerguntaActionPerformed
+        new jfrListarPerguntas().setVisible(true);
+    }//GEN-LAST:event_btnPerguntaActionPerformed
 
 
     public static void main(String args[]) {

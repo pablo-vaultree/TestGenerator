@@ -30,5 +30,11 @@ public class Materia {
     public void Id(int id) {
         this.id = id;
     }
+    
+    @Override
+    public String toString()
+    {
+        return descricao;
+    }
     // </editor-fold>
 }

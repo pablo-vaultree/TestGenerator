@@ -27,6 +27,10 @@ public class jfrCadastrarMateria extends javax.swing.JFrame {
         initComponents();        
         srvMateria = new MateriaRepository();
         id = _id;
+        carregarMateria();
+    }
+
+    private void carregarMateria() {
         Materia materia = srvMateria.BuscarMateria(id);
         if (materia != null) {             
             txtDescricao.setText(materia.Descricao());

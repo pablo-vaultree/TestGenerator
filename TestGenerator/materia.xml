@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <disciplinas>
-  <materia codigo="1" descricao="LPI" />
+  <materia codigo="1" descricao="LP1" />
   <materia codigo="2" descricao="LPII" />
   <materia codigo="3" descricao="LPIII" />
   <materia codigo="4" descricao="Banco de Dados" />

@@ -14,11 +14,17 @@ public enum Nivel {
     
     public static Nivel RetornaNivel(String nivel)
     {
-         switch(nivel)
+        switch(nivel)
         {
-            case "facil": return Nivel.FACIL;
-            case "medio": return Nivel.MEDIO;
-            case "dificil": return Nivel.DIFICIL;
+            case "facil": 
+            case "Fácil":
+                return Nivel.FACIL;
+            case "medio": 
+            case "Médio": 
+                return Nivel.MEDIO;
+            case "dificil": 
+            case "Difícil": 
+                return Nivel.DIFICIL;
             default: return Nivel.FACIL;
         } 
     }
