@@ -34,8 +34,7 @@ public class PerguntaRepository implements IPergunta{
     
     @Override
     public boolean AlterarPergunta(int idx, Pergunta pergunta) {
-        idx -=1;
-       
+
         SAXBuilder builder = new SAXBuilder();
         File xmlFile = new File(filePath);
 
@@ -53,6 +52,7 @@ public class PerguntaRepository implements IPergunta{
             _pergunta.setAttribute("materia", pergunta.Materia().Descricao());                        
             this.AdicionarRespostas(pergunta, _pergunta);
             
+            idx = idx + 2;
             rootNode.addContent(idx, _pergunta);
             
             XMLOutputter xmlOutput = new XMLOutputter();
@@ -71,7 +71,6 @@ public class PerguntaRepository implements IPergunta{
 
     @Override
     public Pergunta BuscarPergunta(int idx) {
-        idx -=1;
         ArrayList<Pergunta> perguntas = this.BuscarPerguntas();
         
         if (perguntas.size() > 0) {
@@ -83,8 +82,7 @@ public class PerguntaRepository implements IPergunta{
 
     @Override
     public boolean ExcluirPergunta(int idx) {
-        idx -=1;
-        
+
         ArrayList<Pergunta> perguntas = new ArrayList<>();
         SAXBuilder builder = new SAXBuilder();
         File xmlFile = new File(filePath);

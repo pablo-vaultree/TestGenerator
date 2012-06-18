@@ -7,12 +7,11 @@ package ui;
 import contracts.IMateria;
 import contracts.IPergunta;
 import java.util.ArrayList;
-import java.util.Vector;
-import javax.swing.AbstractButton;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
 import models.Materia;
 import models.Nivel;
+import models.Pergunta;
+import models.Resposta;
 import repository.MateriaRepository;
 import repository.PerguntaRepository;
 
@@ -22,9 +21,10 @@ import repository.PerguntaRepository;
  */
 public class jfrCadastrarPergunta extends javax.swing.JFrame {
     
-    private int id;
+    private boolean modoEdição;
     private IMateria srvMateria;
     private IPergunta srvPergunta;
+    private int id = 0;
     
     public jfrCadastrarPergunta() {
         initComponents();
@@ -32,15 +32,20 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
         srvPergunta = new PerguntaRepository(srvMateria);
         carregarMaterias();
         carregarOptions();
+        modoEdição = false;
     }
     
     public jfrCadastrarPergunta(int _id) {
         initComponents();
-        id = _id;
         srvMateria = new MateriaRepository();
         srvPergunta = new PerguntaRepository(srvMateria);
-        carregarMaterias();
-        carregarOptions();
+        Pergunta _pergunta = srvPergunta.BuscarPergunta(_id);
+        id = _id;
+        modoEdição = true;
+        carregarOptions(); 
+        carregarMaterias(_pergunta);               
+        carregarNiveis(_pergunta);
+        carregarPergunta();
     }
     
                 
@@ -57,21 +62,21 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         cboNivel = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtPergunta = new javax.swing.JTextArea();
-        rdbOpcao1 = new javax.swing.JRadioButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtResposta1 = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtResposta2 = new javax.swing.JTextArea();
-        rdbOpcao2 = new javax.swing.JRadioButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txtResposta3 = new javax.swing.JTextArea();
-        rdbOpcao3 = new javax.swing.JRadioButton();
+        pnlPerguntas = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtResposta4 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtResposta3 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtResposta2 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtResposta1 = new javax.swing.JTextArea();
+        rdbOpcao1 = new javax.swing.JRadioButton();
+        rdbOpcao2 = new javax.swing.JRadioButton();
+        rdbOpcao3 = new javax.swing.JRadioButton();
         rdbOpcao4 = new javax.swing.JRadioButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtPergunta = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -100,28 +105,80 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
 
         jLabel4.setText("Pergunta");
 
-        txtPergunta.setColumns(20);
-        txtPergunta.setRows(5);
-        jScrollPane1.setViewportView(txtPergunta);
+        pnlPerguntas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Respostas", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(51, 51, 51))); // NOI18N
 
-        txtResposta1.setColumns(20);
-        txtResposta1.setRows(5);
-        jScrollPane2.setViewportView(txtResposta1);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("Respostas:");
-
-        txtResposta2.setColumns(20);
-        txtResposta2.setRows(5);
-        jScrollPane3.setViewportView(txtResposta2);
+        txtResposta4.setColumns(20);
+        txtResposta4.setRows(5);
+        jScrollPane5.setViewportView(txtResposta4);
 
         txtResposta3.setColumns(20);
         txtResposta3.setRows(5);
         jScrollPane4.setViewportView(txtResposta3);
 
-        txtResposta4.setColumns(20);
-        txtResposta4.setRows(5);
-        jScrollPane5.setViewportView(txtResposta4);
+        txtResposta2.setColumns(20);
+        txtResposta2.setRows(5);
+        jScrollPane3.setViewportView(txtResposta2);
+
+        txtResposta1.setColumns(20);
+        txtResposta1.setRows(5);
+        jScrollPane2.setViewportView(txtResposta1);
+
+        javax.swing.GroupLayout pnlPerguntasLayout = new javax.swing.GroupLayout(pnlPerguntas);
+        pnlPerguntas.setLayout(pnlPerguntasLayout);
+        pnlPerguntasLayout.setHorizontalGroup(
+            pnlPerguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPerguntasLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(pnlPerguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(rdbOpcao1)
+                    .addComponent(rdbOpcao2)
+                    .addComponent(rdbOpcao3)
+                    .addComponent(rdbOpcao4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlPerguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane5))
+                .addContainerGap())
+        );
+        pnlPerguntasLayout.setVerticalGroup(
+            pnlPerguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPerguntasLayout.createSequentialGroup()
+                .addGroup(pnlPerguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPerguntasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlPerguntasLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(rdbOpcao1)))
+                .addGroup(pnlPerguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPerguntasLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlPerguntasLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(rdbOpcao2)))
+                .addGroup(pnlPerguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPerguntasLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlPerguntasLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(rdbOpcao3)))
+                .addGroup(pnlPerguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPerguntasLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlPerguntasLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(rdbOpcao4)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        txtPergunta.setColumns(20);
+        txtPergunta.setRows(5);
+        jScrollPane1.setViewportView(txtPergunta);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,40 +194,24 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cboNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
-                .addComponent(btnSalvar)
-                .addGap(18, 18, 18)
-                .addComponent(btnVoltar)
-                .addGap(19, 19, 19))
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addContainerGap())
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rdbOpcao1)
-                                    .addComponent(rdbOpcao2)
-                                    .addComponent(rdbOpcao3)
-                                    .addComponent(rdbOpcao4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane3)
-                                    .addComponent(jScrollPane5)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane2)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1)))
-                        .addGap(50, 50, 50))))
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                        .addComponent(btnSalvar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnVoltar)))
+                .addGap(19, 19, 19))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlPerguntas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,43 +230,15 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(rdbOpcao1))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(rdbOpcao2)
-                        .addGap(96, 96, 96)
-                        .addComponent(rdbOpcao3)
-                        .addGap(94, 94, 94)
-                        .addComponent(rdbOpcao4)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlPerguntas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void carregarOptions() {
-        btnGroupOpcoes.add(rdbOpcao1);
-        btnGroupOpcoes.add(rdbOpcao2);
-        btnGroupOpcoes.add(rdbOpcao3);
-        btnGroupOpcoes.add(rdbOpcao4);
-    }
-    
+            
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.setVisible(false);
         this.dispose();
@@ -234,22 +247,61 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         if (validarCampos()) {
             
-            String pergunta = txtPergunta.getText();
-                                   
-            String text = btnGroupOpcoes.getSelection().toString();
-            
-            String resposta1 = txtResposta1.getText();
-            String resposta2 = txtResposta2.getText();
-            String resposta3 = txtResposta3.getText();
-            String resposta4 = txtResposta4.getText();
-            
-            Materia materia = (Materia)cboMaterias.getSelectedItem();
-            
+            String descricao = txtPergunta.getText();                                               
+            Materia materia = (Materia)cboMaterias.getSelectedItem();            
             String _nivel = cboNivel.getSelectedItem().toString();
-            Nivel nivel = Nivel.RetornaNivel(_nivel);                        
-                                    
+            Nivel nivel = Nivel.RetornaNivel(_nivel);                                    
+            Pergunta pergunta = new Pergunta(materia, descricao, nivel);
+            
+            pergunta.AdicionarResposta(new Resposta(txtResposta1.getText(),
+                                              rdbOpcao1.isSelected()));            
+            pergunta.AdicionarResposta(new Resposta(txtResposta2.getText(),
+                                              rdbOpcao2.isSelected()));
+            pergunta.AdicionarResposta(new Resposta(txtResposta3.getText(),
+                                              rdbOpcao3.isSelected()));
+            pergunta.AdicionarResposta(new Resposta(txtResposta4.getText(),
+                                              rdbOpcao4.isSelected()));
+            
+            if (modoEdição) 
+                srvPergunta.AlterarPergunta(id, pergunta);
+            else
+                srvPergunta.SalvarPergunta(pergunta);
+            
+            JOptionPane.showMessageDialog(null, "Pergunta salva com sucesso!");
+            this.setVisible(false);
+            this.disable();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
+    
+    private void carregarPergunta()
+    {
+        Pergunta pergunta = srvPergunta.BuscarPergunta(id);
+        
+        txtPergunta.setText(pergunta.Descricao());
+                     
+        ArrayList<Resposta> respostas = pergunta.BuscarRespostas();
+        Resposta resposta1 = respostas.get(0);
+        Resposta resposta2 = respostas.get(1);
+        Resposta resposta3 = respostas.get(2);
+        Resposta resposta4 = respostas.get(3);
+        
+        txtResposta1.setText(resposta1.Descricao());        
+        rdbOpcao1.setSelected(resposta1.Correta());        
+        txtResposta2.setText(resposta2.Descricao());
+        rdbOpcao2.setSelected(resposta2.Correta());        
+        txtResposta3.setText(resposta3.Descricao());
+        rdbOpcao3.setSelected(resposta3.Correta());        
+        txtResposta4.setText(resposta4.Descricao());
+        rdbOpcao4.setSelected(resposta4.Correta());
+        
+    }
+    
+    private void carregarOptions() {
+        btnGroupOpcoes.add(rdbOpcao1);
+        btnGroupOpcoes.add(rdbOpcao2);
+        btnGroupOpcoes.add(rdbOpcao3);
+        btnGroupOpcoes.add(rdbOpcao4);
+    }
     
     private boolean validarCampos()
     {
@@ -289,13 +341,53 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
     private void carregarMaterias()
     {
         ArrayList<Materia> materias = srvMateria.BuscarMaterias();
-        
         for(Materia materia : materias)
         {
-            cboMaterias.addItem(materia);
+            cboMaterias.addItem(materia);            
         }
     }
     
+    private void carregarMaterias(Pergunta pergunta)
+    {                
+        ArrayList<Materia> materias = srvMateria.BuscarMaterias();
+        
+        for(Materia materia : materias)
+        {
+            cboMaterias.addItem(materia);  
+            if (pergunta != null) {                
+                if (materia.Descricao().equals(pergunta.Materia().Descricao())) {
+                    cboMaterias.setSelectedItem(materia);
+                }
+            }
+        }
+    }
+    
+    private void carregarNiveis(Pergunta pergunta)
+    {                
+        String nivel = pergunta.Nivel().toString();
+        
+        switch(nivel)
+        {
+            case "facil": 
+                popularNiveis(0);
+                break;
+            case "medio": 
+                popularNiveis(1);
+                break;
+            case "dificil": 
+                popularNiveis(2);
+                break;
+        }        
+    }
+    
+    private void popularNiveis(int _id)
+    {
+        cboNivel.removeAllItems();
+        cboNivel.addItem("Fácil");
+        cboNivel.addItem("Médio"); 
+        cboNivel.addItem("Difícil"); 
+        cboNivel.setSelectedIndex(_id);
+    } 
     
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -342,12 +434,12 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JPanel pnlPerguntas;
     private javax.swing.JRadioButton rdbOpcao1;
     private javax.swing.JRadioButton rdbOpcao2;
     private javax.swing.JRadioButton rdbOpcao3;

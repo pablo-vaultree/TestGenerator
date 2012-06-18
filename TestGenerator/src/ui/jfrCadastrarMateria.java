@@ -17,16 +17,19 @@ public class jfrCadastrarMateria extends javax.swing.JFrame {
 
     private IMateria srvMateria;
     private int id = 0;
+    private boolean modoEdicao;
     
     public jfrCadastrarMateria() {
         initComponents();        
         srvMateria = new MateriaRepository();
+        modoEdicao = false;
     }
     
      public jfrCadastrarMateria(int _id) {
         initComponents();        
         srvMateria = new MateriaRepository();
         id = _id;
+        modoEdicao = true;
         carregarMateria();
     }
 
@@ -120,13 +123,13 @@ public class jfrCadastrarMateria extends javax.swing.JFrame {
             return;
         }
         
-        if (id == 0) {
+        if (modoEdicao) {
+            Materia materia = new Materia(id, text);
+            srvMateria.AlterarMateria(materia);            
+        }else {            
             id = srvMateria.BuscarMaterias().size() + 1;
             Materia materia = new Materia(id, text);
             srvMateria.SalvarMateria(materia);
-        }else {            
-            Materia materia = new Materia(id, text);
-            srvMateria.AlterarMateria(materia);
         }       
         
         
