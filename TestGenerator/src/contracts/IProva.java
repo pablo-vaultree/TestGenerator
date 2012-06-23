@@ -24,7 +24,7 @@ public interface IProva {
             
     public void GerarProva(Prova prova);
     
-    public Prova GerarProva(String nomeProfessor, Materia materia, Nivel nivel, int Quantidade);
+    public Prova GerarProva(String nomeProfessor, Materia materia, Nivel nivel, String data, int Quantidade);
     
     public void GerarGabarito(Prova prova);
 }

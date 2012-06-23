@@ -1,27 +1,9 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <perguntas>
-  <pergunta descricao="saddsdddd" nivel="dificil" materia="Topicos Avancados">
-    <resposta descricao="aaa" correta="nao" />
-    <resposta descricao="bbb" correta="sim" />
-    <resposta descricao="ccc" correta="nao" />
+  <pergunta descricao="Teste" nivel="facil" materia="Teste 22">
+    <resposta descricao="dd" correta="sim" />
+    <resposta descricao="dd" correta="nao" />
+    <resposta descricao="d" correta="nao" />
     <resposta descricao="ddd" correta="nao" />
-  </pergunta>
-  <pergunta descricao="aatttttttbbbbbbb" nivel="facil" materia="LP1">
-    <resposta descricao="bbb" correta="sim" />
-    <resposta descricao="bb" correta="nao" />
-    <resposta descricao="bbb" correta="nao" />
-    <resposta descricao="bbbb" correta="nao" />
-  </pergunta>
-  <pergunta descricao="Teste" nivel="facil" materia="Banco de Dados">
-    <resposta descricao="aa" correta="sim" />
-    <resposta descricao="bb" correta="nao" />
-    <resposta descricao="ccc" correta="nao" />
-    <resposta descricao="dddd" correta="nao" />
-  </pergunta>
-  <pergunta descricao="aaaaaaaaaaatttttttttttttbbb" nivel="dificil" materia="LPIII">
-    <resposta descricao="dsafasdf" correta="nao" />
-    <resposta descricao="dsaf" correta="nao" />
-    <resposta descricao="sadfsdaf" correta="sim" />
-    <resposta descricao="sdfsd" correta="nao" />
   </pergunta>
 </perguntas>

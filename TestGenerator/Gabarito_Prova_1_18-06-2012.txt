@@ -1,0 +1,51 @@
+Curso: Sistemas de Informação
+Disciplina: LPIData: 18-06-2012
+Professor: cuzao666
+Aluno: 
+Nota: 
+ 
+ - Prova - 
+ 
+Assinale a alternativa correta:
+ 
+1. Facil 0? 
+(X) Facil 0 
+( ) Facil 1 
+( ) Facil 2 
+( ) Facil 3 
+( ) Facil 4 
+
+ 
+2. Facil 1? 
+(X) Facil 0 
+( ) Facil 1 
+( ) Facil 2 
+( ) Facil 3 
+( ) Facil 4 
+
+ 
+3. Facil 2? 
+(X) Facil 0 
+( ) Facil 1 
+( ) Facil 2 
+( ) Facil 3 
+( ) Facil 4 
+
+ 
+4. Facil 3? 
+(X) Facil 0 
+( ) Facil 1 
+( ) Facil 2 
+( ) Facil 3 
+( ) Facil 4 
+
+ 
+5. Facil 4? 
+(X) Facil 0 
+( ) Facil 1 
+( ) Facil 2 
+( ) Facil 3 
+( ) Facil 4 
+
+ 
+

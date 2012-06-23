@@ -52,12 +52,12 @@ public class PerguntaRepository implements IPergunta{
             _pergunta.setAttribute("materia", pergunta.Materia().Descricao());                        
             this.AdicionarRespostas(pergunta, _pergunta);
             
-            idx = idx + 2;
+            idx++;
             rootNode.addContent(idx, _pergunta);
             
             XMLOutputter xmlOutput = new XMLOutputter();
             Format format = Format.getPrettyFormat();
-            format.setEncoding("ISO-8859-1");
+            format.setEncoding("UTF-8");
             xmlOutput.setFormat(format);
             xmlOutput.output(document, new FileWriter(filePath));
                                                           
@@ -98,7 +98,7 @@ public class PerguntaRepository implements IPergunta{
             
             XMLOutputter xmlOutput = new XMLOutputter();
             Format format = Format.getPrettyFormat();
-            format.setEncoding("ISO-8859-1");
+            format.setEncoding("UTF-8");
             xmlOutput.setFormat(format);
             xmlOutput.output(document, new FileWriter(filePath));
             
@@ -159,7 +159,7 @@ public class PerguntaRepository implements IPergunta{
             XMLOutputter xmlOutput = new XMLOutputter();
 
             Format format = Format.getPrettyFormat();
-            format.setEncoding("ISO-8859-1");
+            format.setEncoding("UTF-8");
             xmlOutput.setFormat(format);
             xmlOutput.output(doc, new FileWriter(filePath));
 

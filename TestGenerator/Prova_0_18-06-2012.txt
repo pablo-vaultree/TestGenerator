@@ -1,0 +1,19 @@
+Curso: Sistemas de Informação
+Disciplina: LPI
+Data: 10/10/2012
+Professor: Teste
+Aluno: 
+Nota: 
+ 
+ - Prova - 
+ 
+Assinale a alternativa correta:
+ 
+1. Teste 
+( ) Teste 1 
+( ) Teste 1 
+( ) Teste 1 
+( ) Teste 1 
+
+ 
+

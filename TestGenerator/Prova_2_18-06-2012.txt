@@ -1,0 +1,18 @@
+Curso: Sistemas de Informação
+Disciplina: LPIIData: 01/05/2012
+Professor: teste
+Aluno: 
+Nota: 
+ 
+ - Prova - 
+ 
+Assinale a alternativa correta:
+ 
+1. Quão dificil é progaramar JAVA? 
+( ) Facil 0 
+( ) Facil 1 
+( ) Facil 2 
+( ) Facil 3 
+
+ 
+

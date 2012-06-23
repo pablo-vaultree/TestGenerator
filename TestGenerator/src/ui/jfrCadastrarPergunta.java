@@ -28,6 +28,7 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
     
     public jfrCadastrarPergunta() {
         initComponents();
+        setLocationRelativeTo(null);
         srvMateria = new MateriaRepository();
         srvPergunta = new PerguntaRepository(srvMateria);
         carregarMaterias();
@@ -37,6 +38,7 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
     
     public jfrCadastrarPergunta(int _id) {
         initComponents();
+        setLocationRelativeTo(null);
         srvMateria = new MateriaRepository();
         srvPergunta = new PerguntaRepository(srvMateria);
         Pergunta _pergunta = srvPergunta.BuscarPergunta(_id);
@@ -79,6 +81,9 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
         txtPergunta = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pergunta");
+        setPreferredSize(new java.awt.Dimension(600, 700));
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Cadastrar Pergunta");
@@ -204,7 +209,7 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
                         .addComponent(btnSalvar)
                         .addGap(18, 18, 18)
                         .addComponent(btnVoltar)))
@@ -241,6 +246,7 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
             
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.setVisible(false);
+        new jfrListarPerguntas().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
@@ -268,8 +274,10 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
                 srvPergunta.SalvarPergunta(pergunta);
             
             JOptionPane.showMessageDialog(null, "Pergunta salva com sucesso!");
+            
+            new jfrListarPerguntas().setVisible(true);
             this.setVisible(false);
-            this.disable();
+            this.dispose();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
     

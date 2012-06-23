@@ -1,59 +1,23 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <provas>
-  <prova id="1" materia="LPI" professor="cuzao666">
-    <pergunta descricao="C# é mais facil?" nivel="facil" materia="LPI">
-      <resposta descricao="Facil 0" correta="sim" />
-      <resposta descricao="SIM!" correta="sim" />
-      <resposta descricao="Facil 2" correta="nao" />
-      <resposta descricao="Facil 3" correta="nao" />
+  <prova id="1" materia="LPI" professor="Teste" data="10/10/2012">
+    <pergunta descricao="teste 3" nivel="facil" materia="LPI">
+      <resposta descricao="tt" correta="nao" />
+      <resposta descricao="tt" correta="nao" />
+      <resposta descricao="tt" correta="sim" />
+      <resposta descricao="tt" correta="nao" />
     </pergunta>
-    <pergunta descricao="C# é mais facil?" nivel="facil" materia="LPI">
-      <resposta descricao="Facil 0" correta="sim" />
-      <resposta descricao="Facil 1" correta="nao" />
-      <resposta descricao="SIM!" correta="sim" />
-      <resposta descricao="Facil 3" correta="nao" />
+    <pergunta descricao="teste 3" nivel="facil" materia="LPI">
+      <resposta descricao="tt" correta="nao" />
+      <resposta descricao="tt" correta="nao" />
+      <resposta descricao="tt" correta="sim" />
+      <resposta descricao="tt" correta="nao" />
     </pergunta>
-  </prova>
-  <prova id="2" materia="LPII" professor="Teste">
-    <pergunta descricao="Quão dificil é progaramar JAVA?" nivel="facil" materia="LPII">
-      <resposta descricao="Facil 0" correta="sim" />
-      <resposta descricao="Facil 1" correta="nao" />
-      <resposta descricao="Facil 2" correta="nao" />
-      <resposta descricao="Facil 3" correta="nao" />
-    </pergunta>
-    <pergunta descricao="Quão dificil é progaramar JAVA?" nivel="facil" materia="LPII">
-      <resposta descricao="Facil 0" correta="sim" />
-      <resposta descricao="Facil 1" correta="nao" />
-      <resposta descricao="Facil 2" correta="nao" />
-      <resposta descricao="Facil 3" correta="nao" />
-    </pergunta>
-  </prova>
-  <prova id="3" materia="LPII" professor="Teste">
-    <pergunta descricao="Quão dificil é progaramar JAVA?" nivel="facil" materia="LPII">
-      <resposta descricao="Facil 0" correta="sim" />
-      <resposta descricao="Facil 1" correta="nao" />
-      <resposta descricao="Facil 2" correta="nao" />
-      <resposta descricao="Facil 3" correta="nao" />
-    </pergunta>
-    <pergunta descricao="C# é mais facil?" nivel="facil" materia="LPII">
-      <resposta descricao="Facil 0" correta="sim" />
-      <resposta descricao="SIM!" correta="sim" />
-      <resposta descricao="Facil 2" correta="nao" />
-      <resposta descricao="Facil 3" correta="nao" />
-    </pergunta>
-  </prova>
-  <prova id="4" materia="LPII" professor="Teste">
-    <pergunta descricao="C# é mais facil?" nivel="facil" materia="LPII">
-      <resposta descricao="Facil 0" correta="sim" />
-      <resposta descricao="Facil 1" correta="nao" />
-      <resposta descricao="SIM!" correta="sim" />
-      <resposta descricao="Facil 3" correta="nao" />
-    </pergunta>
-    <pergunta descricao="C# é mais facil?" nivel="facil" materia="LPII">
-      <resposta descricao="Facil 0" correta="sim" />
-      <resposta descricao="SIM!" correta="sim" />
-      <resposta descricao="Facil 2" correta="nao" />
-      <resposta descricao="Facil 3" correta="nao" />
+    <pergunta descricao="teste lp1 2" nivel="facil" materia="LPI">
+      <resposta descricao="ttt" correta="sim" />
+      <resposta descricao="ttt" correta="nao" />
+      <resposta descricao="tt" correta="nao" />
+      <resposta descricao="tt" correta="nao" />
     </pergunta>
   </prova>
 </provas>

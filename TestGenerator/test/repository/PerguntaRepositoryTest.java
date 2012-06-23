@@ -16,7 +16,7 @@ import org.junit.Test;
 
 /**
  *
- * @author datacom
+ * @author pablo.feijo
  */
 public class PerguntaRepositoryTest {
     

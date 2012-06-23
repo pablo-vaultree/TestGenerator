@@ -23,7 +23,7 @@ public class MateriaRepository implements IMateria {
     public MateriaRepository() {
     }
     
-    private String filePath = "materia.xml";
+    private String filePath = "materias.xml";
     
     @Override
     public boolean AlterarMateria(Materia materia) {

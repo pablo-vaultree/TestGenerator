@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<disciplinas>
+  <materia codigo="1" descricao="LPI" />
+  <materia codigo="2" descricao="LPII" />
+  <materia codigo="4" descricao="Banco de Dados" />
+  <materia codigo="5" descricao="Topicos Avancados" />
+  <materia codigo="6" descricao="Engenharia de Software" />
+  <materia codigo="7" descricao="SO" />
+  <materia codigo="11" descricao="Teste" />
+  <materia codigo="12" descricao="Teste 22" />
+  <materia codigo="13" descricao="fgsfdgdsfgd" />
+</disciplinas>

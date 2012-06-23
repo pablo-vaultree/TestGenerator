@@ -9,14 +9,16 @@ import repository.MateriaRepository;
 
 /**
  *
- * @author 09200103
+ * @author pablo.feijo
  */
 public class jfrListarMaterias extends javax.swing.JFrame {
     
     IMateria srvMateria;
     
     public jfrListarMaterias() {
-        initComponents();       
+        initComponents();    
+        setLocationRelativeTo(null);
+        
         srvMateria = new MateriaRepository();
         this.CarregarMaterias();
     }
@@ -49,6 +51,8 @@ public class jfrListarMaterias extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Matéria");
+        setResizable(false);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -139,10 +143,12 @@ public class jfrListarMaterias extends javax.swing.JFrame {
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         new jfrCadastrarMateria().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.setVisible(false);
+        new jfrInicio().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
@@ -155,6 +161,7 @@ public class jfrListarMaterias extends javax.swing.JFrame {
             String str[] = lstMaterias.getSelectedValue().toString().split("-");
             int id = Integer.parseInt(str[0].trim());
             new jfrCadastrarMateria(id).setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 

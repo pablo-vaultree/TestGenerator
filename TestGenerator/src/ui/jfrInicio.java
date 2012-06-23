@@ -7,7 +7,8 @@ package ui;
 public class jfrInicio extends javax.swing.JFrame {
 
     public jfrInicio() {
-        initComponents();
+        initComponents();        
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -23,6 +24,8 @@ public class jfrInicio extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inicío");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel1.setText("Test Generator");
@@ -42,29 +45,33 @@ public class jfrInicio extends javax.swing.JFrame {
         });
 
         btnProva.setText("Provas");
+        btnProva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProvaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
+                .addGap(137, 137, 137)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(101, 101, 101))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnPergunta)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnProva)
                                 .addComponent(btnMateria)))
-                        .addGap(231, 231, 231))))
+                        .addGap(130, 130, 130)))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(51, 51, 51)
                 .addComponent(jLabel1)
                 .addGap(51, 51, 51)
                 .addComponent(btnMateria)
@@ -72,7 +79,7 @@ public class jfrInicio extends javax.swing.JFrame {
                 .addComponent(btnPergunta)
                 .addGap(26, 26, 26)
                 .addComponent(btnProva)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
@@ -80,11 +87,18 @@ public class jfrInicio extends javax.swing.JFrame {
 
     private void btnMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMateriaActionPerformed
         new jfrListarMaterias().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnMateriaActionPerformed
 
     private void btnPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerguntaActionPerformed
         new jfrListarPerguntas().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnPerguntaActionPerformed
+
+    private void btnProvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProvaActionPerformed
+        new jfrListarProvas().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnProvaActionPerformed
 
 
     public static void main(String args[]) {

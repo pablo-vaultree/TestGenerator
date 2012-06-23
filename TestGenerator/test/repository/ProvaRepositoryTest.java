@@ -36,7 +36,7 @@ public class ProvaRepositoryTest {
         int id = srvProva.BuscarProvas().size() + 1;        
         MateriaRepository srvMat = new MateriaRepository();
         Materia materia = srvMat.BuscarMateria("LPIII");        
-        Prova prova = new Prova(materia, id, "Master");
+        Prova prova = new Prova(materia, id, "Master", "10/06/2012");
         
         for (int i = 0; i < 5; i++) {
             Pergunta pergunta = new Pergunta(materia, "Facil " + i + "?", Nivel.FACIL);            
@@ -84,7 +84,7 @@ public class ProvaRepositoryTest {
         Materia mat = srvMat.BuscarMateria("LPI");
         
         Prova prova = srvProva.BuscarProva(1);                
-        prova.NomeProfessor("cuzao666");
+        prova.NomeProfessor("teste");
         prova.Materia(mat);
         
         boolean expResult = true;
@@ -108,19 +108,29 @@ public class ProvaRepositoryTest {
     public void testGerarProva() {
         System.out.println("GerarProva");                
         int quantidade = 2;
-        Materia materia = srvMateria.BuscarMateria("LPII");        
-        Prova prova = srvProva.GerarProva("Teste", materia, Nivel.FACIL, quantidade);                
+        Materia materia = srvMateria.BuscarMateria("LPIII");        
+        Prova prova = srvProva.GerarProva("Teste", materia, Nivel.DIFICIL, "10/06/2012", quantidade);                
         assertNotNull(prova); 
         
         srvProva.SalvarProva(prova);
     }   
     
     @Test
+    public void testGerarProva_DeveRetornarNull_SeNaoEncontrarPergunta()
+    {
+        System.out.println("GerarProva");                
+        int quantidade = 2;
+        Materia materia = srvMateria.BuscarMateria("LPI");        
+        Prova prova = srvProva.GerarProva("Teste", materia, Nivel.DIFICIL, "10/06/2012", quantidade);                
+        assertNull(prova);                 
+    }
+    
+    @Test
     public void testGerarProvaDeveRetornarProvaComPerguntas() {
         System.out.println("testGerarProvaDeveRetornarProvaComPerguntas");                
         int quantidade = 1;
-        Materia materia = srvMateria.BuscarMateria("LPII");        
-        Prova prova = srvProva.GerarProva("Teste", materia, Nivel.FACIL, quantidade);                
+        Materia materia = srvMateria.BuscarMateria("LPIII");        
+        Prova prova = srvProva.GerarProva("Teste", materia, Nivel.DIFICIL, "10/06/2012", quantidade);                
         assertEquals(quantidade, prova.BuscarPerguntas().size()); 
     }   
         

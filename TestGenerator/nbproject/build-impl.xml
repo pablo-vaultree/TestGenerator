@@ -52,7 +52,7 @@ is divided into following sections:
         <available file="${libraries.dir}/${libraries.basename}-private.properties" property="private.properties.available"/>
     </target>
     <target depends="-pre-init-libraries" if="private.properties.available" name="-init-private-libraries">
-        <loadproperties encoding="ISO-8859-1" srcfile="${libraries.dir}/${libraries.basename}-private.properties">
+        <loadproperties encoding="UTF-8" srcfile="${libraries.dir}/${libraries.basename}-private.properties">
             <filterchain>
                 <replacestring from="$${base}" to="${libraries.dir}"/>
                 <escapeunicode/>
@@ -60,7 +60,7 @@ is divided into following sections:
         </loadproperties>
     </target>
     <target depends="-pre-init,-init-private,-init-private-libraries" name="-init-libraries">
-        <loadproperties encoding="ISO-8859-1" srcfile="${libraries.path}">
+        <loadproperties encoding="UTF-8" srcfile="${libraries.path}">
             <filterchain>
                 <replacestring from="$${base}" to="${libraries.dir}"/>
                 <escapeunicode/>

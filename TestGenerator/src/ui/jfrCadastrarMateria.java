@@ -5,13 +5,15 @@
 package ui;
 
 import contracts.IMateria;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import models.Materia;
+import models.Prova;
 import repository.MateriaRepository;
 
 /**
  *
- * @author 09200103
+ * @author pablo.feijo
  */
 public class jfrCadastrarMateria extends javax.swing.JFrame {
 
@@ -20,13 +22,17 @@ public class jfrCadastrarMateria extends javax.swing.JFrame {
     private boolean modoEdicao;
     
     public jfrCadastrarMateria() {
-        initComponents();        
+        initComponents();  
+        setLocationRelativeTo(null);
+        
         srvMateria = new MateriaRepository();
         modoEdicao = false;
     }
     
      public jfrCadastrarMateria(int _id) {
-        initComponents();        
+        initComponents();  
+        setLocationRelativeTo(null);
+        
         srvMateria = new MateriaRepository();
         id = _id;
         modoEdicao = true;
@@ -54,6 +60,8 @@ public class jfrCadastrarMateria extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Matéria");
+        setResizable(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Cadastrar Matéria");
@@ -127,27 +135,40 @@ public class jfrCadastrarMateria extends javax.swing.JFrame {
             Materia materia = new Materia(id, text);
             srvMateria.AlterarMateria(materia);            
         }else {            
-            id = srvMateria.BuscarMaterias().size() + 1;
+            id = RetornaProximoIndice();
             Materia materia = new Materia(id, text);
             srvMateria.SalvarMateria(materia);
         }       
         
         
         JOptionPane.showMessageDialog(null, "Matéria salva!");
-        this.fechar();
-    }//GEN-LAST:event_btnSalvarActionPerformed
-
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        this.fechar();        
-    }//GEN-LAST:event_btnVoltarActionPerformed
-
-    
-    private void fechar()
-    {
+        
         this.setVisible(false);
+        new jfrListarMaterias().setVisible(true);
         this.dispose();
+    }//GEN-LAST:event_btnSalvarActionPerformed
+    
+    private int RetornaProximoIndice()
+    {
+        int idx = 1;
+        
+        ArrayList<Materia> materias = srvMateria.BuscarMaterias();                
+        
+        for(Materia materia : materias)
+        {            
+            if (idx <= materia.Id() ) 
+                idx = materia.Id() + 1;
+        }            
+        
+        return idx;
     }
     
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        this.setVisible(false);
+        new jfrListarMaterias().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
     public static void main(String args[]) {        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /*

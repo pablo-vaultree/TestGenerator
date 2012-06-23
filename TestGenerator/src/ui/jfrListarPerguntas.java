@@ -12,7 +12,7 @@ import repository.PerguntaRepository;
 
 /**
  *
- * @author 09200103
+ * @author pablo.feijo
  */
 public class jfrListarPerguntas extends javax.swing.JFrame {
     
@@ -20,7 +20,9 @@ public class jfrListarPerguntas extends javax.swing.JFrame {
     IPergunta srvPergunta;
     
     public jfrListarPerguntas() {
-        initComponents();               
+        initComponents();   
+        setLocationRelativeTo(null);
+        
         srvMateria = new MateriaRepository();
         srvPergunta = new PerguntaRepository(srvMateria);
         this.CarregarPerguntas();
@@ -54,6 +56,8 @@ public class jfrListarPerguntas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pergunta");
+        setResizable(false);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -148,10 +152,12 @@ public class jfrListarPerguntas extends javax.swing.JFrame {
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         new jfrCadastrarPergunta().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.setVisible(false);
+        new jfrInicio().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
@@ -163,6 +169,7 @@ public class jfrListarPerguntas extends javax.swing.JFrame {
         if (lstPerguntas.getSelectedIndex() != -1) {            
             int id = lstPerguntas.getSelectedIndex();
             new jfrCadastrarPergunta(id).setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
