@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <perguntas>
-  <pergunta descricao="Teste" nivel="facil" materia="Teste 22">
+  <pergunta descricao="Teste" nivel="facil" materia="LPII">
     <resposta descricao="dd" correta="sim" />
     <resposta descricao="dd" correta="nao" />
     <resposta descricao="d" correta="nao" />
     <resposta descricao="ddd" correta="nao" />
+  </pergunta>
+  <pergunta descricao="Teste&#x9;&#x9;" nivel="facil" materia="LPI">
+    <resposta descricao="Resposta 1" correta="nao" />
+    <resposta descricao="Resposta 2" correta="sim" />
+    <resposta descricao="Resposta 3" correta="nao" />
+    <resposta descricao="Resposta 4" correta="nao" />
+  </pergunta>
+  <pergunta descricao="Banco de dados&#x9;" nivel="medio" materia="Banco de Dados">
+    <resposta descricao="Teste" correta="sim" />
+    <resposta descricao="Teste" correta="nao" />
+    <resposta descricao="Teste" correta="nao" />
+    <resposta descricao="Teste" correta="nao" />
+  </pergunta>
+  <pergunta descricao="LP1?" nivel="facil" materia="LPI">
+    <resposta descricao="Teste" correta="nao" />
+    <resposta descricao="Teste" correta="nao" />
+    <resposta descricao="Teste" correta="nao" />
+    <resposta descricao="Teste" correta="sim" />
+  </pergunta>
+  <pergunta descricao="lp1?" nivel="facil" materia="LPI">
+    <resposta descricao="Teste" correta="sim" />
+    <resposta descricao="Teste" correta="nao" />
+    <resposta descricao="Teste" correta="nao" />
+    <resposta descricao="Teste" correta="nao" />
+  </pergunta>
+  <pergunta descricao="lp um?" nivel="facil" materia="LPI">
+    <resposta descricao="Teste" correta="sim" />
+    <resposta descricao="Teste" correta="nao" />
+    <resposta descricao="Teste" correta="nao" />
+    <resposta descricao="Teste" correta="nao" />
+  </pergunta>
+  <pergunta descricao="lp um ou dois" nivel="facil" materia="LPI">
+    <resposta descricao="um" correta="sim" />
+    <resposta descricao="dois" correta="nao" />
+    <resposta descricao="tres" correta="nao" />
+    <resposta descricao="quatro" correta="nao" />
   </pergunta>
 </perguntas>

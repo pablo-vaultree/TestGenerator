@@ -199,7 +199,10 @@ public class jfrListarPerguntas extends javax.swing.JFrame {
         
         for (Pergunta pergunta : perguntas) {            
             String desc = pergunta.Descricao();
-            String materia = pergunta.Materia().toString(); 
+            String materia = "Materia não econtrada.";
+            if (pergunta.Materia() != null) {
+                materia = pergunta.Materia().toString(); 
+            }             
             String nivel = pergunta.Nivel().toString();
             String text = String.format("%s - %s - %s", desc, materia, nivel);
             model.addElement(text);            

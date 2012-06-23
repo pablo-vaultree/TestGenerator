@@ -1,0 +1,26 @@
+Curso: Sistemas de Informação
+Disciplina: LPI
+Data: 30/06/2012
+Professor: João
+Aluno: 
+Nota: 
+ 
+ - Prova - 
+ 
+Assinale a alternativa correta:
+ 
+1. LP1? 
+( ) Teste 
+( ) Teste 
+( ) Teste 
+( ) Teste 
+
+ 
+2. lp1? 
+( ) Teste 
+( ) Teste 
+( ) Teste 
+( ) Teste 
+
+ 
+

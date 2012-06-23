@@ -362,7 +362,7 @@ public class jfrCadastrarPergunta extends javax.swing.JFrame {
         for(Materia materia : materias)
         {
             cboMaterias.addItem(materia);  
-            if (pergunta != null) {                
+            if (pergunta != null && pergunta.Materia() != null) {                
                 if (materia.Descricao().equals(pergunta.Materia().Descricao())) {
                     cboMaterias.setSelectedItem(materia);
                 }

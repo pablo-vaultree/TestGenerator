@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <provas>
-  <prova id="1" materia="LPI" professor="Teste" data="10/10/2012">
-    <pergunta descricao="teste 3" nivel="facil" materia="LPI">
-      <resposta descricao="tt" correta="nao" />
-      <resposta descricao="tt" correta="nao" />
-      <resposta descricao="tt" correta="sim" />
-      <resposta descricao="tt" correta="nao" />
+  <prova id="1" materia="LPI" professor="Pablo" data="27/06/2012">
+    <pergunta descricao="LP1?" nivel="facil" materia="LPI">
+      <resposta descricao="Teste" correta="nao" />
+      <resposta descricao="Teste" correta="nao" />
+      <resposta descricao="Teste" correta="nao" />
+      <resposta descricao="Teste" correta="sim" />
     </pergunta>
-    <pergunta descricao="teste 3" nivel="facil" materia="LPI">
-      <resposta descricao="tt" correta="nao" />
-      <resposta descricao="tt" correta="nao" />
-      <resposta descricao="tt" correta="sim" />
-      <resposta descricao="tt" correta="nao" />
+    <pergunta descricao="lp um ou dois" nivel="facil" materia="LPI">
+      <resposta descricao="um" correta="sim" />
+      <resposta descricao="dois" correta="nao" />
+      <resposta descricao="tres" correta="nao" />
+      <resposta descricao="quatro" correta="nao" />
     </pergunta>
-    <pergunta descricao="teste lp1 2" nivel="facil" materia="LPI">
-      <resposta descricao="ttt" correta="sim" />
-      <resposta descricao="ttt" correta="nao" />
-      <resposta descricao="tt" correta="nao" />
-      <resposta descricao="tt" correta="nao" />
+  </prova>
+  <prova id="2" materia="LPI" professor="João" data="30/06/2012">
+    <pergunta descricao="LP1?" nivel="facil" materia="LPI">
+      <resposta descricao="Teste" correta="nao" />
+      <resposta descricao="Teste" correta="nao" />
+      <resposta descricao="Teste" correta="nao" />
+      <resposta descricao="Teste" correta="sim" />
+    </pergunta>
+    <pergunta descricao="lp1?" nivel="facil" materia="LPI">
+      <resposta descricao="Teste" correta="sim" />
+      <resposta descricao="Teste" correta="nao" />
+      <resposta descricao="Teste" correta="nao" />
+      <resposta descricao="Teste" correta="nao" />
     </pergunta>
   </prova>
 </provas>
