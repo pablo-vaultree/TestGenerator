@@ -79,9 +79,9 @@ public class ProvaRepository implements IProva {
                 Element _prova = (Element) list.get(i);                           
                 int id = Integer.parseInt(_prova.getAttributeValue("id"));
                 if (prova.Id() == id) {                    
-                    rootNode.removeContent(_prova);
+                    //rootNode.removeContent(_prova);
                                 
-                    _prova = new Element("prova");
+                    //_prova = new Element("prova");
                     _prova.setAttribute("id", Integer.toString(prova.Id()));
                     _prova.setAttribute("materia", prova.Materia().Descricao());
                     _prova.setAttribute("professor", prova.NomeProfessor()); 
@@ -89,7 +89,7 @@ public class ProvaRepository implements IProva {
                     
                     this.AdicionarPerguntas(prova, _prova);
 
-                    rootNode.addContent(i, _prova);
+                    //rootNode.addContent(i, _prova);
 
                     XMLOutputter xmlOutput = new XMLOutputter();
                     Format format = Format.getPrettyFormat();

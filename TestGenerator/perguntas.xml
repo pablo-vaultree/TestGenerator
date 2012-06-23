@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <perguntas>
-  <pergunta descricao="Teste" nivel="facil" materia="LPII">
+  <pergunta descricao="Lp1 - médio" nivel="medio" materia="LPI">
+    <resposta descricao="dd" correta="sim" />
+    <resposta descricao="dd" correta="nao" />
+    <resposta descricao="d" correta="nao" />
+    <resposta descricao="ddd" correta="nao" />
     <resposta descricao="dd" correta="sim" />
     <resposta descricao="dd" correta="nao" />
     <resposta descricao="d" correta="nao" />

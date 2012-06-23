@@ -43,17 +43,17 @@ public class PerguntaRepository implements IPergunta{
             Document document = (Document) builder.build(xmlFile);
             Element rootNode = document.getRootElement();
             List list = rootNode.getChildren("pergunta");
-            Element _perguntaAnt = (Element) list.get(idx);                           
-            rootNode.removeContent(_perguntaAnt);
+            Element _pergunta = (Element) list.get(idx);                           
+            //rootNode.removeContent(_perguntaAnt);
             
-            Element _pergunta = new Element("pergunta");
+            //Element _pergunta = new Element("pergunta");
             _pergunta.setAttribute("descricao", pergunta.Descricao());
             _pergunta.setAttribute("nivel", pergunta.Nivel().toString());
             _pergunta.setAttribute("materia", pergunta.Materia().Descricao());                        
             this.AdicionarRespostas(pergunta, _pergunta);
             
-            idx++;
-            rootNode.addContent(idx, _pergunta);
+            //idx++;
+            //rootNode.addContent(idx, _pergunta);
             
             XMLOutputter xmlOutput = new XMLOutputter();
             Format format = Format.getPrettyFormat();
